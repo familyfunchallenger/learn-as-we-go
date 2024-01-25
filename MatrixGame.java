@@ -27,11 +27,62 @@ public class MarixGame {
     return false;
   }
 
-  // Decide the top 3 rows 
-  void findTopThreeRows() {}
   
-  // Decide the top 3 columns
-  void findTopThreeColumns() {}
+  // Find top three rows
+  int[] findTopThreeRows(int[][] array) {
+        int[] rowSums = new int[array.length];
+
+        for (int i = 0; i < array.length; i++) {
+            int sum = 0;
+            for (int j = 0; j < array[i].length; j++) {
+                sum += array[i][j];
+            }
+            rowSums[i] = sum;
+        }
+
+        // Sort rowSums and get the indices of the top 3 sums
+        int[] indices = new int[3];
+        for (int i = 0; i < 3; i++) {
+            int maxIndex = 0;
+            for (int j = 1; j < rowSums.length; j++) {
+                if (rowSums[j] > rowSums[maxIndex]) {
+                    maxIndex = j;
+                }
+            }
+            indices[i] = maxIndex;
+            rowSums[maxIndex] = Integer.MIN_VALUE; // Mark the maximum as processed
+        }
+
+        return indices;
+    }
+
+    // Find top three columns
+    int[] findTopThreeColumns(int[][] array) {
+        int[] colSums = new int[array[0].length];
+
+        for (int i = 0; i < array[0].length; i++) {
+            int sum = 0;
+            for (int j = 0; j < array.length; j++) {
+                sum += array[j][i];
+            }
+            colSums[i] = sum;
+        }
+
+        // Sort colSums and get the indices of the top 3 sums
+        int[] indices = new int[3];
+        for (int i = 0; i < 3; i++) {
+            int maxIndex = 0;
+            for (int j = 1; j < colSums.length; j++) {
+                if (colSums[j] > colSums[maxIndex]) {
+                    maxIndex = j;
+                }
+            }
+            indices[i] = maxIndex;
+            colSums[maxIndex] = Integer.MIN_VALUE; // Mark the maximum as processed
+        }
+
+        return indices;
+    }
   
   // Calculate players' scores
   // This calculation will be based on the top 3 rows and columns deteced
