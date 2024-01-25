@@ -1,3 +1,5 @@
+import java.util.Arrays;
+import java.util.Random;
 
 public class MarixGame {
 
@@ -18,6 +20,18 @@ public class MarixGame {
   
   // Generate a 7x7 grid of integers (0-9)
   void generateIntegerGrid() {}
+  int[][] generateRandomArray(int rows, int cols) {
+        int[][] randomArray = new int[rows][cols];
+        Random random = new Random();
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                randomArray[i][j] = random.nextInt(10); // Generates random integers between 0 and 9
+            }
+        }
+
+        return randomArray;
+    }
 
   // Parse and sanity check palyer inputs
   // If user input is invalid, return false; otherwise return true
