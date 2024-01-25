@@ -10,6 +10,11 @@ public class MarixGame {
   Boolean isLastTurn;
   Boolean playerOneStartsFirst;
   Boolean currentTurnIsPlayerOne;
+
+  // initialize all the member variables.
+  MatrixGame() {
+    
+  }
   
   // Generate a 7x7 grid of integers (0-9)
   void generateIntegerGrid() {}
@@ -90,6 +95,11 @@ public class MarixGame {
       performSwapping();
       printPlayersScores();
     }
+  }
+
+  public static void main(args[]) {
+    MatrxGame game = new MatrixGame();
+    game.play();
   }
   
 }
