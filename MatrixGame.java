@@ -239,6 +239,9 @@ public class MatrixGame {
 
   // Perform the swapping based on the input from the current player
   void performSwapping() {
+    int a = integerGrid[playerInput[0]][playerInput[1]];
+    integerGrid[playerInput[0]][playerInput[1]] = integerGrid[playerInput[2]][playerInput[3]];
+    integerGrid[playerInput[0]][playerInput[1]] = a;
   }
 
   // Print out the player scores
