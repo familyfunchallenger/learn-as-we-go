@@ -36,10 +36,30 @@ Constraints:
 0 <= prices[i] <= 104
 """
 
+import math
 from typing import List
 
 
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
-        max_profit = 0
-        return max_profit
+        dp = {}
+        KeepCash = 0
+        HoldStock = 1
+        dp[-1, HoldStock] = -math.inf
+        dp[-1, KeepCash] = 0
+        for day, stock_price in enumerate(prices):
+            dp[day, HoldStock] = max(dp[day - 1, HoldStock], dp[day - 1, KeepCash] - stock_price)
+            dp[day, KeepCash] = max(dp[day - 1, KeepCash], dp[day - 1, HoldStock] + stock_price)
+        return dp[len(prices) - 1, KeepCash]
+    
+
+s = Solution()
+
+prices = [7,1,5,3,6,4]
+print(s.maxProfit(prices))
+
+prices = [1,2,3,4,5]
+print(s.maxProfit(prices))
+
+prices = [7,6,4,3,1]
+print(s.maxProfit(prices))
