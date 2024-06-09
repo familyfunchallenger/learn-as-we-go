@@ -29,7 +29,6 @@ Constraints:
 It's guaranteed that you can reach nums[n - 1].
 """
 
-import math
 from typing import List
 
 
@@ -43,7 +42,7 @@ class Solution:
             if nums[0] >= 1:
                 return 1
             else:
-                return math.inf
+                return arr_length + 1
         if nums[0] >= arr_length - 1:
             return 1
         # At this point the length of the array is at least two
