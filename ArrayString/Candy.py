@@ -95,11 +95,13 @@ class Solution:
                     print("i = ", i)
                     print(total_candies)
                 # when we get out of the loop, the last item in the FLAT trend has not been processed
-                total_candies += base_candy
-                i += 1
-                previous_trend = 0
-                print("i = ", i)
-                print(total_candies)
+                # However, we shall not process this one because this one may have a different value because
+                # of the following trend
+                # total_candies += base_candy
+                # i += 1
+                # previous_trend = 0
+                # print("i = ", i)
+                # print(total_candies)
             elif (i != 0 and ratings[i - 1] > ratings[i]) or ratings[i] > ratings[i + 1]:
                 # start of a DOWN trend
                 # the last element of the ratings[i] will get 1 candy
