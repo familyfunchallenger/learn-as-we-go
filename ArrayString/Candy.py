@@ -72,7 +72,8 @@ class Solution:
         
         return sum(candies)
 
-        One-Pass Greedy Algorithm: Up-Down-Peak Method
+
+One-Pass Greedy Algorithm: Up-Down-Peak Method
 Why Up, Down, and Peak?
 The essence of the one-pass greedy algorithm lies in these three variables: Up, Down, and Peak. They serve as counters for the following:
 
