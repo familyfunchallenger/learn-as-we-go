@@ -90,6 +90,15 @@ class Solution:
             900: 'CM'
         }
 
+    def int2Roman(self, num: int) -> str:
+        r = ''
+        for n in [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1]:
+            # If n in list then add the roman value to result variable
+            while n <= num:
+                r += self.i2r[n]
+                num -= n
+        return r
+    
     def intToRoman(self, num: int) -> str:
         if num < 1 or num > 3999:
             return 'Out of Range'
