@@ -162,10 +162,10 @@ class Solution:
 s = Solution()
 
 num = 3749
-print(s.intToRoman(num))
+print(s.int2Roman(num))
 
 
-print(s.intToRoman(58))
+print(s.int2Roman(58))
 
 
-print(s.intToRoman(1994))
+print(s.int2Roman(1994))
