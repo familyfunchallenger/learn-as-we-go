@@ -58,7 +58,7 @@ def generateList(nums):
                 h = p
                 r = p
             else:
-                r.next = p
+                r.next = p # type: ignore
                 r = p
     return h
         
