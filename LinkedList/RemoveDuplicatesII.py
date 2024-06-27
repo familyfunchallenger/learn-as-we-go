@@ -62,21 +62,30 @@ class Solution:
             - having a pointer traversing the list from the head towards the end of the list in a loop 
                 * if current node's val is the same as the next node's val, remove next node
                 * if current node's val is different form the next node's val, move the pointer downwards one node
+
+        above solution does not fully solve the problem. An easier way is to have a separate list to store only unique nodes.
         """
         if head is None or head.next is None:
             return head
         p = head
-        while p is not None:
-            p1 = p.next
-            if p1 is None:
-                break
-            if p.val == p1.val:
-                # we can remove p1
-                p.next = p1.next
-                p1.next = None
-                del p1
+        p1 = p.next
+        p2 = None
+        val_of_dup = None
+        while p is not None and p1 is not None:
+            p2 = p1.next
+            if p.val == p1.val or p.val == val_of_dup:
+                # we can remove p1, p
+                val_of_dup = p.val
+                if p == head:
+                    head = p.next # type: ignore
+                    p = head
+                else:
+                    p.next = p1.next
+                    p1.next = None
+                #     del p1
             else:
                 p = p.next
+                val_of_dup = None
         return head
     
 
