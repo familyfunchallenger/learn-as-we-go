@@ -88,7 +88,7 @@ class Solution:
                 val_of_dup = None
         return head
     
-    def deleteDuplicates(head):
+    def deleteDuplicates2(self, head):
         # Create a dummy node to handle edge cases
         dummy = ListNode(0)
         dummy.next = head
