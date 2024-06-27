@@ -88,6 +88,29 @@ class Solution:
                 val_of_dup = None
         return head
     
+    def deleteDuplicates(head):
+        # Create a dummy node to handle edge cases
+        dummy = ListNode(0)
+        dummy.next = head
+        prev = dummy
+        current = head
+        
+        while current:
+            # Skip all duplicates
+            if current.next and current.val == current.next.val: # type: ignore
+                # Move current until the end of duplicates sublist
+                while current.next and current.val == current.next.val: # type: ignore
+                    current = current.next # type: ignore
+                # Skip all duplicates
+                prev.next = current.next # type: ignore
+            else:
+                # No duplicates, move prev to current
+                prev = prev.next # type: ignore
+            # Move current forward
+            current = current.next # type: ignore
+        
+        return dummy.next
+        
 
 s = Solution()
 
