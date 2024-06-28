@@ -32,6 +32,7 @@ class TreeNode:
     def printTreeBFS(head):
         if head is None:
             print([])
+            return
         p = head
         nodes = [p]
         bfs = []
@@ -43,10 +44,12 @@ class TreeNode:
             else:
                 bfs.append(None)
             nodes.remove(nodes[0])
+        while len(bfs) > 0 and bfs[-1] is None:
+            bfs.pop()
         print(bfs)
 
 
 
-arr = [3, 9, 20, None, None, 15, 7]
-t = TreeNode.generateTreeFromBFS(arr)
-TreeNode.printTreeBFS(t)
+#arr = [3, 9, 20, None, None, 15, 7]
+#t = TreeNode.generateTreeFromBFS(arr)
+#TreeNode.printTreeBFS(t)
