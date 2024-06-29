@@ -109,4 +109,5 @@ class Solution:
                 if levels[i] == 0:
                     break
             i += 1
+        # Now we have the dict of each level, printing the output is straightforward
         return root
