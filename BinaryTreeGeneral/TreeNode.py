@@ -17,12 +17,15 @@ class TreeNode:
         i = 0
         while i < len(arr):
             l = 2 * i + 1
+            n = None
             if l < len(arr):
-                n = TreeNode(arr[l])
+                if arr[l] is not None:
+                    n = TreeNode(arr[l])
                 nodes[i].left = n
                 nodes[l] = n
             if l + 1 < len(arr):
-                n = TreeNode(arr[l + 1])
+                if arr[l + 1] is not None:
+                    n = TreeNode(arr[l + 1])
                 nodes[i].right = n
                 nodes[l + 1] = n
             i += 1
