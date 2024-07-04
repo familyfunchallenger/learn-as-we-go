@@ -111,7 +111,7 @@ solution = Solution()
 print(solution.countNodes(root1))  # Output: 6
 
 root2 = None
-print(solution.countNodes(root2))  # Output: 0
+print(solution.countNodes(root2))  # type: ignore # Output: 0
 
 root3 = TreeNode(1)
 print(solution.countNodes(root3))  # Output: 1
